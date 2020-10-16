@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="aandrzejewski">
+        <createTable tableName="ADV_CAMPAING_HISTORY">
+            <column name="id" type="long" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="datasource" type="varchar(250)"/>
+            <column name="campaign" type="varchar(250)"/>
+            <column name="daily" type="varchar(12)"/>
+            <column name="creation_date" type="timestamp"/>
+            <column name="clicks" type="long"/>
+            <column name="impressions" type="long"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="aandrzejewski">
+        <loadData catalogName="cat"
+                  encoding="UTF-8"
+                  file="../init-data/init-data.csv"
+                  quotchar="'"
+                  relativeToChangelogFile="true"
+                  separator=","
+                  tableName="ADV_CAMPAING_HISTORY">
+        </loadData>
+    </changeSet>
+
+    <changeSet id="3" author="aandrzejewski">
+        <customChange class="com.example.demo.migrations.TransformDateChangeset">
+        </customChange>
+    </changeSet>
+
+</databaseChangeLog>
