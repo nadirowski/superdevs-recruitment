@@ -1,7 +1,10 @@
 package com.example.demo.web;
 
 import com.example.demo.model.CalculateMetricsRequest;
+import com.example.demo.model.CalculateMetricsResponse;
 import com.example.demo.service.AdvCampaignResultsCalculationService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/metrics")
 @RequiredArgsConstructor
+@Api("Metrics calculation api")
 public class MetricsController {
 
 
@@ -26,7 +30,8 @@ public class MetricsController {
      * @return list of requested metrics
      */
     @PostMapping
-    public ResponseEntity<Object> calculateMetrics(@RequestBody final CalculateMetricsRequest request) {
+    @ApiOperation("Calculate metrics for given data")
+    public ResponseEntity<CalculateMetricsResponse> calculateMetrics(@RequestBody final CalculateMetricsRequest request) {
         return service.calculateMetricValue(request.getMetric(), request.getGroupBy(), request.getFilters());
 
     }

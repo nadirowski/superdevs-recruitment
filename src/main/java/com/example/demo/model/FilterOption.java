@@ -13,5 +13,5 @@ public class FilterOption {
 
     private Dimension dimension;
     private FilterOperator operator;
-    private List<Object> operatorValues;
+    private List<String> operatorValues;
 }
