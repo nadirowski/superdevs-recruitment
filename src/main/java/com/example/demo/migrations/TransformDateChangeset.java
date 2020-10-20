@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 
 public class TransformDateChangeset implements CustomTaskChange {
 
-    private final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YY");
+    private final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
 
     @Override
     public void execute(final Database database) throws CustomChangeException {

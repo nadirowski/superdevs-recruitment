@@ -59,3 +59,5 @@ and the client must know what to expect when requesting certain metric.
 For huge datasets probably the approach will need to be different to avoid loading too much data to memory.
 Probably there should be some processing on inserting of data and storing calculated results in tables related to concrete metrics,
 or maybe even storing only aggregated data after certain time already passed.
+
+Swagger docs could be better if I would add more annotations on all model elements (to better show what are available values for filters, dimensions etc)
