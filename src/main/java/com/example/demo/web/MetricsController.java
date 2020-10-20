@@ -24,7 +24,7 @@ public class MetricsController {
     /**
      * While this is kind of a search request GET method is not suitable to be used here due to complex query object
      * that might not fit in the HTTP GET request (might be too long).
-     * Using POST allows us to create complex query object, and potentially cache the response to be used in subsequent queries
+     * Using POST allows us to create complex query object, and potentially put the response in some backend cache to be used in subsequent queries
      *
      * @param request - complex query object containing data that is requested
      * @return list of requested metrics
